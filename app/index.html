@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-mode="editor">
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-badge">VI</span>
+    <div>
+      <h1>Neon Coast Cover Studio</h1>
+      <p>Turn any photo into a multi-panel cover. Fully offline — your photos never leave this machine.</p>
+    </div>
+  </div>
+  <button id="exportBtn" class="export-btn" type="button">Export PNG</button>
+</header>
+<main class="workspace">
+  <section class="stage-wrap" id="dropZone">
+    <canvas id="stage" width="1280" height="720"></canvas>
+    <p class="drop-hint">Drop photos anywhere on the cover, or use the picker — up to 6.</p>
+  </section>
+  <aside class="panel">
+    <h2>Photos</h2>
+    <label class="file-label">
+      Add photos
+      <input id="fileInput" type="file" accept="image/*" multiple>
+    </label>
+    <p id="panelLabel" class="panel-label">Panel 1</p>
+    <div class="row">
+      <button id="cyclePhoto" class="mini-btn" type="button">Next photo in panel</button>
+    </div>
+    <label class="slider-row">Panel zoom
+      <input id="zoomRange" type="range" min="100" max="300" value="100">
+    </label>
+    <p class="hint">Tip: click a panel to select it, drag on the cover to reposition its photo, scroll to zoom, arrow keys nudge the framing.</p>
+
+    <h2>Layout</h2>
+    <div id="layoutChips" class="chips"></div>
+    <h2>Colour grade</h2>
+    <div id="gradeChips" class="chips"></div>
+    <h2>Print FX</h2>
+    <div class="fx-grid">
+      <label><input type="checkbox" id="fx-halftone" checked> Halftone</label>
+      <label><input type="checkbox" id="fx-grain" checked> Grain</label>
+      <label><input type="checkbox" id="fx-vignette" checked> Vignette</label>
+      <label><input type="checkbox" id="fx-ink" checked> Ink edges</label>
+    </div>
+    <h2>Lettering</h2>
+    <label class="field">Title
+      <input id="titleInput" type="text" value="NEON COAST" maxlength="24">
+    </label>
+    <label class="field">Script subtitle
+      <input id="subtitleInput" type="text" value="where the night never pays" maxlength="48">
+    </label>
+    <label class="field">Location
+      <input id="locationInput" type="text" value="PALM BAY" maxlength="24">
+    </label>
+    <label class="slider-row">Heat stars
+      <input id="starsRange" type="range" min="0" max="5" step="1" value="4">
+    </label>
+    <h2>Export size</h2>
+    <div id="sizeChips" class="chips"></div>
+    <p class="hint">Exports render at full size: 1920 × 1080, 1080 × 1350 or 1080 × 1080.</p>
+  </aside>
+</main>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
